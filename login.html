@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.js"></script>
+</head>
+<body>
+        <center>
+            <table>
+                <tr>
+                    <td>用户名：</td>
+                    <td>
+                        <input type="text" id="name">
+                    </td>
+                </tr>
+                <tr>
+                    <td>密码：</td>
+                    <td>
+                        <input type="password" id="pwd">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" value="登陆" id="submit">
+                   </td>
+                    <td></td>
+                </tr>
+            </table>
+        </center>
+</body>
+</html>
+<script>
+    $('#submit').click(function(){
+        var name = $('#name').val();
+        var pwd = $('#pwd').val();
+         $.ajax({
+            url:"login.php",
+            type:"post",
+            data:{name:name,pwd:pwd},
+            success:function(res){
+               if(res=='ok'){
+                  window.location.href='student.html';
+               }
+            }
+        })
+    })
+   
+
+</script>
